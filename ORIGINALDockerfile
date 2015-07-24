@@ -1,0 +1,10 @@
+FROM alnutile/nginxlaravel:0.3.4
+
+# Initial Install and Provision
+# Mount the project to the /share
+ADD . /share
+RUN chmod -R 755 app/storage
+RUN chown -R www-data:www-data *
+RUN service php5-fpm restart
+
+EXPOSE 443
